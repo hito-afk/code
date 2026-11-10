@@ -250,33 +250,54 @@ Salam Hokki,TOTO12 ❤️
 
   <!-- 📋 SCRIPT: PASSWORD + SALIN -->
   <script>
-    const passwords = ["manis1", "ganteng1", "lucu1", "imut1"];
-    const prefixList = ["manis", "ganteng", "lucu", "imut", "cantik", "tampan", "gula", "sakti", "mantap", "motor", "kuku", "kaki", "jiwa", "bilang", "gas1", "keren", "malas", "tapi", "masak", "kotak", "bulat", "tebak", "masuk", "kota", "desa", "taman", "rumah", "main", "kelas", "guru", "bunga", "jalan", "tepi", "mudah"];
-    for (let prefix of prefixList) {
-      for (let i = 1; i <= 999; i++) {
-        passwords.push(`${prefix}${i.toString().padStart(3, '0')}`);
-      }
+    const words = [
+      "bola", "cuan", "suka", "lupa", "maju",
+      "juara", "hebat", "mantap", "ceria",
+      "hoki", "rezeki", "bahagia", "senyum",
+      "cinta", "sayang", "manis", "cantik",
+      "pintar", "berani", "damai", "santai", "bagus",
+      "makan", "minum", "tidur", "jalan", "rumah",
+      "mobil", "motor", "kopi", "susu", "roti",
+      "bulan", "bunga", "slot", "awan", "hujan", "laut", "pantai", "suku",
+      "merah", "putih", "hitam", "biru", "hijau",
+      "kuning", "emas", "permata", "kaya",
+      "sehat", "kuat", "cepat", "aktif", "ramah",
+      "sabar", "ikhlas", "jujur", "apel",
+      "jeruk", "pisang", "melon", "ayam", "bakso",
+      "bisa", "burung", "jika", "ada",
+      "pagi", "siang", "sore", "malam", "subuh",
+      "topi", "baju", "sepatu", "tas", "jam",
+      "anda", "indah", "bambu", "batu", "daun", "pohon"
+    ];
+    const copyText = document.getElementById("full-text");
+    const messageTemplate = copyText.defaultValue.trim();
+    copyText.value = messageTemplate;
+
+    function randomIndex(count) {
+      const value = crypto.getRandomValues(new Uint32Array(1))[0];
+      return Math.floor(value * count / 2 ** 32);
     }
 
-    const filteredPasswords = passwords.filter((pw) => pw.length >= 6);
+    function generatePassword() {
+      let word = words[randomIndex(words.length)];
+      const suffix = String(randomIndex(99) + 1).padStart(2, "0");
+      // Keep the original six-character minimum for three-letter words.
+      if (word.length + suffix.length < 6) {
+        word += words[randomIndex(words.length)];
+      }
+      return word + suffix;
+    }
 
-    function copyAndChangePassword() {
-      const password = filteredPasswords[Math.floor(Math.random() * filteredPasswords.length)];
-      const newText = `Silahkan di Login Ya bosku Dengan
+    async function copyAndChangePassword() {
+      const password = generatePassword();
+      copyText.value = messageTemplate.replace(/^🔑 Password:[ \t]*$/m, `🔑 Password: ${password}`);
 
-👤  ID Akun : 
-🔑 Password : ${password}
-
-Dan ubah password bosku sesuai dengan keinginan bosku , Jangan beritahu password bosku kepada orang lain untuk keamanan akun bosku 🙂
-
-(𝐉𝐀𝐍𝐆𝐀𝐍 𝐆𝐔𝐍𝐀𝐊𝐀𝐍 𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃 𝐘𝐀𝐍𝐆 𝐒𝐀𝐌𝐀 𝐃𝐄𝐍𝐆𝐀𝐍 𝐔𝐒𝐄𝐑 𝐈𝐃 / 𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃 𝐘𝐀𝐍𝐆 𝐌𝐔𝐃𝐀𝐇 𝐃𝐈 𝐓𝐄𝐁𝐀𝐊 𝐎𝐑𝐀𝐍𝐆 𝐋𝐀𝐈𝐍)
-
-Link login :https://kitakale.me/Toto12`;
-
-      const copyText = document.getElementById("full-text");
-      copyText.value = newText;
-      copyText.select();
-      document.execCommand("copy");
+      try {
+        await navigator.clipboard.writeText(copyText.value);
+      } catch {
+        copyText.select();
+        document.execCommand("copy");
+      }
     }
 
     function toggleTheme() {
