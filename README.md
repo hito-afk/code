@@ -163,16 +163,21 @@
   <div class="login-form">
     <label for="full-text">Silahkan di Login Ya bosku Dengan</label>
     <textarea id="full-text" class="input-field" rows="8" readonly>
-Silahkan di Login Ya bosku Dengan
+🔐 INFORMASI LOGIN AKUN TOTO12
 
-ID : 
-password:
+Halo bosku! 😊
 
-Dan ubah password bosku sesuai dengan keinginan bosku , Jangan beritahu password bosku kepada orang lain untuk keamanan akun bosku 🙂
+Berikut informasi login akun TOTO12:
 
-(𝐉𝐀𝐍𝐆𝐀𝐍 𝐆𝐔𝐍𝐀𝐊𝐀𝐍 𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃 𝐘𝐀𝐍𝐆 𝐒𝐀𝐌𝐀 𝐃𝐄𝐍𝐆𝐀𝐍 𝐔𝐒𝐄𝐑 𝐈𝐃 / 𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃 𝐘𝐀𝐍𝐆 𝐌𝐔𝐃𝐀𝐇 𝐃𝐈 𝐓𝐄𝐁𝐀𝐊 𝐎𝐑𝐀𝐍𝐆 𝐋𝐀𝐈𝐍)
+👤 ID Akun: 
+🔑 Password: 
 
-Link login : https://toto12mineral.com/
+🔗 Link Login: https://sayakale.me/toto12
+
+Setelah login, jangan lupa ubah password dan jaga kerahasiaan akun bosku ya 😊🙏
+Terima kasih dan selamat bergabung!
+
+Salam Hokki,TOTO12 ❤️
     </textarea><br />
     <button class="btn-neon copy-btn" onclick="copyAndChangePassword()">📋 Copy Cok!</button>
   </div>
@@ -259,14 +264,15 @@ Link login : https://toto12mineral.com/
       const password = filteredPasswords[Math.floor(Math.random() * filteredPasswords.length)];
       const newText = `Silahkan di Login Ya bosku Dengan
 
-ID : 
-password: ${password}
+👤 ID Akun : 
+🔑 password: ${password}
 
-Dan ubah password bosku sesuai dengan keinginan bosku , Jangan beritahu password bosku kepada orang lain untuk keamanan akun bosku 🙂
+🔗 Link Login: https://sayakale.me/toto12
 
-(𝐉𝐀𝐍𝐆𝐀𝐍 𝐆𝐔𝐍𝐀𝐊𝐀𝐍 𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃 𝐘𝐀𝐍𝐆 𝐒𝐀𝐌𝐀 𝐃𝐄𝐍𝐆𝐀𝐍 𝐔𝐒𝐄𝐑 𝐈𝐃 / 𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃 𝐘𝐀𝐍𝐆 𝐌𝐔𝐃𝐀𝐇 𝐃𝐈 𝐓𝐄𝐁𝐀𝐊 𝐎𝐑𝐀𝐍𝐆 𝐋𝐀𝐈𝐍)
+Setelah login, jangan lupa ubah password dan jaga kerahasiaan akun bosku ya 😊🙏
+Terima kasih dan selamat bergabung!
 
-Link login :https://toto12mineral.com/`;
+Salam Hokki,TOTO12 ❤️`;
 
       const copyText = document.getElementById("full-text");
       copyText.value = newText;
